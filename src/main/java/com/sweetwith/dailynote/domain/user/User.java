@@ -10,22 +10,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+@NoArgsConstructor
 @Getter
 @Entity
 public class User extends BaseTimeEntity {
+
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @Column(nullable = false)
     private String loginId;
 
     @Column(nullable = false)
     private String loginPw;
-
-    public User() {
-
-    }
 
     @Builder
     public User(String loginId, String loginPw) {

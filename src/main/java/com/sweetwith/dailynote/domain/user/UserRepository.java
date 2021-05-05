@@ -15,9 +15,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
     Optional<User> findById(Long id);
 
     // update
-    @Modifying
-    @Query("UPDATE Post as p SET p.loginId =?2 , p.loginPw =?3 WHERE p.Id =?1")
-    boolean updateTitleAndContent(Long Id, String loginId, String loginPw);
+    @Modifying(clearAutomatically = true)
+    @Query("UPDATE User as p SET p.loginId =?2 , p.loginPw =?3 WHERE p.Id =?1")
+    boolean updateTitleAndContent(Long id, String loginId, String loginPw);
 
     // delete
     void deleteById(Long id);
