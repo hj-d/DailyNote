@@ -16,8 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
     // update
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE User as p SET p.loginId =?2 , p.loginPw =?3 WHERE p.Id =?1")
-    boolean updateTitleAndContent(Long id, String loginId, String loginPw);
+    @Query("UPDATE User as p SET p.loginPw =?2 WHERE p.Id =?1")
+    boolean updateLoginPw(Long id, String loginPw);
 
     // delete
     void deleteById(Long id);

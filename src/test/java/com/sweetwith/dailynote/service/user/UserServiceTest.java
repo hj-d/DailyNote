@@ -10,8 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,7 +32,7 @@ public class UserServiceTest {
 
         String loginId = "TEST_LOGIN_ID";
         String loginPw = "TEST_LOGIN_PW";
-    
+
         Long userId = userService.registerUser(loginId, loginPw);
         UserResponseDto ret = userService.getUserDetail(userId);
 
